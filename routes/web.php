@@ -11,4 +11,6 @@
 |
 */
 
-Route::get('/', 'Home@HomeController')->name('home');
+Route::get('/', 'HomeController@home')->name('home');
+
+Route::post('/gravar','HomeController@gravar')->name('gravar');
