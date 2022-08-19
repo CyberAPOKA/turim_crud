@@ -15,6 +15,12 @@
     height: 50px;
 
 }
+.ler{
+    width: 100px;
+}
+textarea{
+    
+}
 
 .ler {
     color: white;
@@ -24,16 +30,48 @@
     width: 150px;
     height: 50px;
 }
-
-.input-nome{
-    width: 50%;
+.form-all h4{
+    padding-top: 2rem;
 }
 
-.btn-incluir{
+.tabelas{
+    padding-top: 2rem;
+}
+
+.btn-incluir {
     width: 100px;
 }
-.box{
+
+.box {
     width: 100px;
     height: 100px;
     border: solid rgb(216, 8, 136) 2px;
+}
+
+.btn-group {
+    padding-top: 2rem;
+}
+
+.btn-incluir {
+    border: solid green 2px;
+    background-color: rgb(16, 173, 16);
+    color: white;
+    height: 37px;
+}
+
+.form-name{
+    padding-top: 2rem;
+}
+
+.tabelas button{
+    border: solid green 2px;
+    background-color: rgb(16, 173, 16);
+    color: white;
+    height: 37px;
+}
+.tabelas td button{
+    background-color: rgb(255, 0, 0);
+    border: solid rgb(155, 7, 7) 2px;
+    color: white;
+    height: 37px;
 }

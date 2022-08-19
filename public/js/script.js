@@ -2,11 +2,15 @@ const std = {
     nome: document.getElementById('nome'),
     incluir: document.getElementById('incluir'),
     json: document.getElementById('json'),
-    tabelas: document.getElementById('tabelas')
+    tabelas: document.getElementById('tabelas'),
+    inputForm: document.getElementById('inputForm')
 };
 
-const textarea = {
-    pessoas: []
+function formatoJson() {
+
+    const pretty = JSON.stringify(textarea, undefined, 4);
+    std.json.value = pretty;
+
 }
 
 function incluir(valor, index = null) {
@@ -19,19 +23,22 @@ function incluir(valor, index = null) {
         })
     }
 
-
     render()
+
 
 }
 
 function render() {
-    std.json.innerHTML = JSON.stringify(textarea)
+
+    formatoJson()
 
     std.tabelas.innerHTML = ''
 
     for (let index in textarea.pessoas) {
         createTabela(textarea.pessoas[index], index, std.tabelas)
     }
+
+    std.inputForm.value = JSON.stringify(textarea)
 }
 
 function createTabela(data, index, campo) {
@@ -46,8 +53,8 @@ function createTabela(data, index, campo) {
 
     tabela.classList.add('table')
     td.innerHTML = data.nome
-    button.innerHTML = 'Remover'
-    buttonFilho.innerHTML = 'Adicionar filho'
+    button.innerHTML = 'Remover <i class="bi bi-trash"></i>'
+    buttonFilho.innerHTML = 'Adicionar filho <i class="bi bi-plus-lg"></i>'
 
     button.addEventListener('click', () => {
         remove(index)
@@ -80,12 +87,12 @@ function createTr(data, campo, index, indexFilho) {
     const button = document.createElement('button')
 
     td.innerHTML = data
-    button.innerHTML = 'Remover filho'
+    button.innerHTML = 'Remover filho <i class="bi bi-trash"></i>'
 
     button.addEventListener('click', () => {
         remove(index, indexFilho)
     })
-    
+
 
     tdButton.append(button)
     tr.append(td)
@@ -96,7 +103,7 @@ function createTr(data, campo, index, indexFilho) {
 function remove(index, nomeIndex = null) {
     if (nomeIndex) {
         textarea.pessoas[index].filhos.splice(nomeIndex, 1)
-    } else{
+    } else {
         textarea.pessoas.splice(index, 1)
     }
 

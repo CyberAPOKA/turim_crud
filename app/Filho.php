@@ -4,17 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Familia extends Model
+class Filho extends Model
 {
-    protected $table = 'familias';
+    protected $table = 'filhos';
 
     protected $fillable = [
         'id',
-        'id_pai',
-        'nome'
+        'nome',
+        'id_pai'
     ];
 
     protected $hidden = [
+        'id',
+        'id_pai',
         'created_at',
         'updated_at'
     ];

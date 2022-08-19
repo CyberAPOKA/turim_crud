@@ -14,7 +14,12 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -27,30 +32,49 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="text-center">
-                        <button class="gravar">Gravar</button>
-                        <button class="ler">Ler</button>
-                    </div>
-                    <div class="row">
-                        <label for="nome">Nome</label>
-                        <input type="text" class="form-control input-nome" id="nome">
-                        <button class="btn-incluir" id="incluir">Incluir</button>
-                        <h4>Pessoas</h4>
-                    </div>
+                    <form action="{{ route('gravar') }}" method="post" id="formFamily">
+                        @csrf
+                        <input type="hidden" name="nameForm" id="inputForm">
 
+                    </form>
+                    <button type="submit" class="gravar" form="formFamily">Gravar</button>
+                    <button class="ler"><a class="ler" href="{{ route('ler')}}">Ler</a></button>
+                    <div class="row form-all">
+                        <div class="col-md-6">
+                            <div class="form-group row form-name">
+                                <div class="col-md-2">
+                                    <label for="nome">Nome</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="nome" id="nome">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="btn-group">
+                                <button type="button" class="btn-incluir" id="incluir">Incluir
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h4 class="text-center">Pessoas</h4>
+                    </div>
                     <div class="tabelas" id="tabelas">
-
                     </div>
 
                 </div>
                 <div class="col-md-6">
-                    <textarea name="" id="json" cols="100" style="width: 100%" class="box">
+                    <textarea name="" id="json" cols="100" disabled style="width: 100%" class="box">
 
                     </textarea>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        const textarea = @json($data);
+    </script>
 
     <script src="{{ asset('js/script.js') }}"></script>
 
