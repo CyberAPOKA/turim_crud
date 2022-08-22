@@ -24,6 +24,8 @@ class HomeController extends Controller
             $data = json_decode($data);
 
             FamiliaRepository::SaveFamily($data);
+
+            return redirect()->route('home')->with('message', '401');
         } catch (\Exception $e) {
             echo ($e->getMessage());
         }
@@ -35,7 +37,7 @@ class HomeController extends Controller
 
         $data->pessoas = FamiliaRepository::getFamily();
 
-        
+
 
         return view('home', ['data' => $data]);
     }

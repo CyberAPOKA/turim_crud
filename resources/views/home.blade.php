@@ -20,12 +20,26 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 
 <body>
+    @if (session('message'))
+        <script>
+            Swal.fire({
+                position: 'mid-mid',
+                icon: 'success',
+                title: 'Sucesso!',
+                text: 'Os dados foram salvos com sucesso.',
+            })
+        </script>
+    @endif
     <header>
         <div class="container">
-            <img src="{{ asset('imgs/logo.png') }}" class="img_header" alt="">
+            <a href="{{ route('home') }}"><img src="{{ asset('imgs/logo.png') }}" class="img_header" alt=""></a>
+
         </div>
     </header>
     <section class="hero" id="hero">
@@ -37,8 +51,10 @@
                         <input type="hidden" name="nameForm" id="inputForm">
 
                     </form>
+                    <a class="home" href="{{ route('home') }}"><button class="ler">Home</button></a>
                     <button type="submit" class="gravar" form="formFamily">Gravar</button>
-                    <button class="ler"><a class="ler" href="{{ route('ler')}}">Ler</a></button>
+                    <a class="ler" href="{{ route('ler') }}"><button class="ler">Ler</button></a>
+
                     <div class="row form-all">
                         <div class="col-md-6">
                             <div class="form-group row form-name">
@@ -64,7 +80,7 @@
 
                 </div>
                 <div class="col-md-6">
-                    <textarea name="" id="json" cols="100" disabled style="width: 100%" class="box">
+                    <textarea name="" id="json" cols="100" disabled class="box">
 
                     </textarea>
                 </div>
